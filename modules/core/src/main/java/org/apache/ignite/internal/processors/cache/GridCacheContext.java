@@ -2043,7 +2043,7 @@ public class GridCacheContext<K, V> implements Externalizable {
      * @return {@code True} if it is possible directly read offheap instead of using {@link GridCacheEntryEx#innerGet}.
      */
     public boolean readNoEntry(IgniteCacheExpiryPolicy expiryPlc, boolean readers) {
-        return !readers && expiryPlc == null;
+        return !config().isOnheapCacheEnabled() && !readers && expiryPlc == null;
     }
 
     /**
